@@ -1,0 +1,21 @@
+#header{
+    display: flex;
+    justify-content: space-between;
+}
+
+table{
+    border-collapse: collapse;
+    border: 1px solid blue;
+    width: 100%;
+}
+
+td{
+    text-align: center;
+}
+
+#footer{
+    text-align: end;
+}
+h3{
+    text-align: center;
+}

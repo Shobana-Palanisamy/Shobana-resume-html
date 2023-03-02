@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <style>
+        h3{
+            text-align: center;
+        }
+        body{
+            background-color: hsl(160, 24%, 43%);
+            font-style: oblique;
+            text-align: center;
+        }
+        div{
+            border: 2px black;
+            margin-top: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            box-shadow: 3px 4px 5px;
+            max-width: 50%;
+            background-color: rgb(64, 128, 67);
+        }
+        .form-control{
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .form-control label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        table{
+            border-collapse: collapse;
+            border: 2px solid black;
+            margin-top: 20px; width: 100%;
+
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <h3>MY FORM</h3>
+        <div>
+            <lebal for="Name">Name</lebal>
+            <input type="text" id="name" placeholder="Enter Your Name" required>
+                </div>
+    <div>
+        <label for="mail">Email</label>
+        <input type="email" id="mail" placeholder="Enter Your Email Address" name="mail" required>
+    </div>
+    <div>
+        <label for="DOB">Birth  Date</label>
+        <input type="date" id="dob" placeholder="Enter Your Date of Birth" name="dob" required>
+       </div>
+       <div>
+        <label for="gender">Gender</label>
+        <select name="" id="gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Others</option>
+            </select>
+            
+       </div>
+       <div>
+        <label for="Phone Number">Phone No</label>
+        <input type="number" id="phoneNo" placeholder="Enter Your Phone Number" name="Phone No" required>       
+    </div>
+    <div>
+        <label for="blood group">Blood Group</label>
+        <input type="text" id="bloodGroup" placeholder="Enter your blood group"required>
+    </div>
+    <button type=" btn submit">Submit</button>
+    <button type="btn reset">Reset</button>
+    <hr>
+    </form>
+    <table border="2" id="myTable">
+
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Blood Group</th>
+        </tr>
+    </table>
+    <script>
+        let form = document.getElementById("myForm")
+        let table = document.getElementById("myTable")
+        if(form){
+            form.addEventListener("submit",function(e){
+                event.preventDefault()
+                let nameInput=document.getElementById("name")
+                let mailInput=document.getElementById("mail")
+                let dobInput=document.getElementById("dob")
+                let genderInput=document.getElementById("gender")
+                let phoneNoInput=document.getElementById("phoneNo")
+                let bloodGroupInput=document.getElementById("bloodGroup")
+                console.log(nameInput,mailInput,genderInput,dobInput,bloodGroupInput,phoneNoInput)
+
+                let name=nameInput.value.trim()
+                let mail=mailInput.value
+                let dob=dobInput.value
+                let gender=genderInput.value
+                let phoneNo=phoneNoInput.value
+                let bloodGroup=bloodGroupInput.value
+                console.log(name,mail,gender,dob,bloodGroup,phoneNo)
+
+                if(name==""){
+                    alert("Please fill out name")
+                    return
+                }
+    
+            console.log(name,mail,dob,gender,phoneNo,bloodGroup)
+            let newRow=table.insertRow(-1)
+            let nameCol=newRow.insertCell(0)
+            let mailCol=newRow.insertCell(1)
+            let dobCol=newRow.insertCell(2)
+            let genderCol=newRow.insertCell(3)
+            let phoneNoCol=newRow.insertCell(4)
+            let bloodGroupCol=newRow.insertCell(5) 
+            
+            nameCol.innerHTML=name
+            mailCol.innerHTML=mail
+            dobCol.innerHTML=dob
+            genderCol.innerHTML=gender
+            phoneNoCol.innerHTML=phoneNo
+            bloodGroupCol.innerHTML=bloodGroup
+            form.reset()
+        })
+
+        }
+    </script>
+</body>
+</html>
